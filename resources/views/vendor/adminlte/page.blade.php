@@ -1,54 +1,37 @@
 @extends('adminlte::master')
 
-@if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))
-    @php( $def_container_class = 'container' )
-@else
-    @php( $def_container_class = 'container-fluid' )
-@endif
+@inject('layoutHelper', 'JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper')
 
 @section('adminlte_css')
     @stack('css')
     @yield('css')
 @stop
 
-@section('classes_body', $adminlte->getBodyClasses())
+@section('classes_body', $layoutHelper->makeBodyClasses())
 
-@section('body_data', $adminlte->getBodyData())
+@section('body_data', $layoutHelper->makeBodyData())
 
 @section('body')
     <div class="wrapper">
 
         {{-- Top Navbar --}}
-        @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))
+        @if($layoutHelper->isLayoutTopnavEnabled())
             @include('adminlte::partials.navbar.navbar-layout-topnav')
         @else
             @include('adminlte::partials.navbar.navbar')
         @endif
 
         {{-- Left Main Sidebar --}}
-        @if(!config('adminlte.layout_topnav') && !View::getSection('layout_topnav'))
+        @if(!$layoutHelper->isLayoutTopnavEnabled())
             @include('adminlte::partials.sidebar.left-sidebar')
         @endif
 
         {{-- Content Wrapper --}}
-        <div class="content-wrapper">
-
-            {{-- Content Header --}}
-            <div class="content-header">
-                <div class="{{ config('adminlte.classes_content_header') ?: $def_container_class }}">
-                    @yield('content_header')
-                </div>
-            </div>
-
-            {{-- Main Content --}}
-            <div class="content">
-                
-                <div class="{{ config('adminlte.classes_content') ?: $def_container_class }}"> 
-                    @yield('content')
-                </div>
-            </div>
-
-        </div>
+        @empty($iFrameEnabled)
+            @include('adminlte::partials.cwrapper.cwrapper-default')
+        @else
+            @include('adminlte::partials.cwrapper.cwrapper-iframe')
+        @endempty
 
         {{-- Footer --}}
         @hasSection('footer')
@@ -64,7 +47,6 @@
 @stop
 
 @section('adminlte_js')
-    <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     @stack('js')
     @yield('js')
 @stop

@@ -7,8 +7,7 @@
 @stop
 
 @section('content')
-   
-
+    
     <div class="row" style="float: left;">
         <div class="col-xs-12">
           <div class="box">
