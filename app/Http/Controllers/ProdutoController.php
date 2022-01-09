@@ -11,8 +11,8 @@ class ProdutoController extends Controller
     public function index(){
         $produtos = Produto::all();
         //dd($produtos->all());
-        $array_produtos = array('produtos'=>$produtos);
-        return view('home', $array_produtos);
+         $array_produtos = array('produtos'=>$produtos);
+         return view('home', $array_produtos);
         
     }
 
@@ -54,10 +54,10 @@ class ProdutoController extends Controller
     public function adicionar(Request $request){
         //dd($request->all());
         $produtos = new Produto;
-        $produtos->nome = $request->nome_form;
-        $produtos->produtor = $request->produtor_form;
-        $produtos->plataforma = $request->plataforma_form;
-        $produtos->quantidade = $request->quantidade_form;
+        // $produtos->nome = $request->nome_form;
+        // $produtos->produtor = $request->produtor_form;
+        // $produtos->plataforma = $request->plataforma_form;
+        // $produtos->quantidade = $request->quantidade_form;
         $produtos->save();
         return back();
     }

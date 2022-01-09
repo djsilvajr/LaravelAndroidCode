@@ -3,7 +3,7 @@
 @section('title', 'Editar produto')
 
 @section('content_header')
-    <h1>Editar Produto</h1>
+    <h1>Editar Dados</h1>
 @stop
 
 @section('content')
@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">ID</label>
                             <input type="text" class="form-control" name="id" value="{{$id}}" readonly>
-                            </div>
+                            {{-- </div>
                             <div class="form-group">
                               <label for="exampleInputEmail1">Nome do jogo</label>
                               <input type="text" class="form-control" name="nome_form" value="{{$nome}}" required>
@@ -37,7 +37,7 @@
                               <div class="form-group">
                                 <label for="exampleInputPassword1">Quantidade</label>
                                 <input type="number" class="form-control" name="quantidade_form" value="{{$quantidade}}" required>
-                              </div>
+                              </div> --}}
                           <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Salvar novo</button>
                           </div>

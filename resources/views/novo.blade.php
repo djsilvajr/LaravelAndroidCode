@@ -3,7 +3,7 @@
 @section('title', 'Novo produto')
 
 @section('content_header')
-    <h1>Novo Produto</h1>
+    <h1>Adicionar algum tipo de dado</h1>
 @stop
 
 @section('content')
@@ -19,7 +19,7 @@
 
                             {{ csrf_field() }}
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                               <label for="exampleInputEmail1">Nome do jogo</label>
                               <input type="text" class="form-control" name="nome_form" required>
                             </div>
@@ -37,7 +37,7 @@
                               </div>
                           <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Salvar novo</button>
-                          </div>
+                          </div> --}}
                         </form>
                       </div>
                 </div>

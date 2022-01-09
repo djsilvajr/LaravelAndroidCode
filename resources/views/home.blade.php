@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content_header')
-    <h1>Produtos</h1>
+    <h1>Tipos de Dados</h1>
 @stop
 
 @section('content')
@@ -12,9 +12,10 @@
         <div class="col-xs-12">
           <div class="box">
 
-            <div class="box-body table-responsive no-padding">
+            {{-- <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tbody><tr>
+                  <th>id</th>
                   <th>Nome do jogo</th>
                   <th>Produtora</th>
                   <th>Plataforma</th>
@@ -25,6 +26,7 @@
                 
                 @foreach ($produtos as $pro)
                 <tr>
+                    <td>{{ $pro->id }}</td>
                     <td>{{ $pro->nome }}</td>
                     <td>{{ $pro->produtor }}</td>
                     <td>{{ $pro->plataforma }}</td>
@@ -36,46 +38,12 @@
                 </tr>
                 @endforeach
               </tbody></table>
-            </div>
+            </div> --}}
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </div>
       </div>
-
-<!-----------------tabela de preco-------------------------- -->
-
-      <div class="row" style="float:center;">
-        <div class="col-xs-12">
-          <div class="box">
-
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tbody><tr>
-                  <th>Nome do jogo</th>
-                  <th>preco</th>
-                  <th>opcoes</th>
-                </tr>
-
-                
-                @foreach ($produtos as $pro)
-                <tr>
-                    <td>{{ $pro->nome }}</td>
-                    <td>250.00</td>
-                    
-                <td>
-                    <a class ="btn btn-info btn-xs" href="editar/{{$pro->id}}">Editar preco</a>
-                </td>
-                </tr>
-                @endforeach
-              </tbody></table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-      </div>
-
 
 @stop
 
